@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Landing Page */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px;
+}
+h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0077cc;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #005ea6;
+}
+.options {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.option {
+    margin: 0 10px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 2px solid transparent;
+    padding: 5px;
+    transition: border-color 0.3s ease;
+}
+.option:hover {
+    border-bottom-color: #0077cc;
+}
+.portada {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
