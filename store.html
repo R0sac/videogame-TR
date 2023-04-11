@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #modal-confirmacion {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-contenido {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .botones-modal {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+        .product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.product {
+  width: calc(50% - 10px);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product:nth-child(3n+1) {
+  margin-right: 20px;
+}
+
+.product:nth-child(n+7) {
+  width: calc(33.33% - 10px);
+  margin-right: 0;
+  margin-left: auto;
+}
+
+
+    </style>
+</head>
+<body>
+	<main>
+		<section>
+			<h2>Productos</h2>
+			<div class="product-container">
+				<!-- Primer producto -->
+				<div class="product">
+					<img src="./images/mtg.png" alt="Carta 1">
+					<h3>Carta 1</h3>
+					<p>Precio: $5.00</p>
+					<button id="comprar-1">Comprar</button>
+				</div>
+				<!-- Segundo producto -->
+				<div class="product">
+					<img src="./images/mtg.png" alt="Carta 2">
+					<h3>Carta 2</h3>
+					<p>Precio: $7.00</p>
+					<button id="comprar-2">Comprar</button>
+				</div>
+				<!-- Tercer producto -->
+				<div class="product">
+					<img src="./images/mtg.png" alt="Carta 3">
+					<h3>Carta 3</h3>
+					<p>Precio: $4.50</p>
+					<button id="comprar-3">Comprar</button>
+				</div>
+				<!-- Cuarto producto -->
+				<div class="product">
+					<img src="./images/mtg.png" alt="Carta 4">
+					<h3>Carta 4</h3>
+					<p>Precio: $6.00</p>
+					<button id="comprar-4">Comprar</button>
+				</div>
+				<!-- Quinto producto -->
+				<div class="product">
+					<img src="./images/mtg.png" alt="Carta 5">
+					<h3>Carta 5</h3>
+					<p>Precio: $8.50</p>
+					<button id="comprar-5">Comprar</button>
+				</div>
+				<!-- Sexto producto -->
+				<div class="product">
+					<img src="./images/mtg.png" alt="Carta 6">
+					<h3>Carta 6</h3>
+					<p>Precio: $9.00</p>
+					<button id="comprar-6">Comprar</button>
+				</div>
+				<!-- Séptimo producto -->
+				<div class="product">
+					<img src="./images/mtg.png" alt="Objeto 1">
+					<h3>Objeto 1</h3>
+					<p>Precio: $20.00</p>
+					<button id="comprar-7">Comprar</button>
+				</div>
+				<!-- Octavo producto -->
+				<div class="product">
+					<img src="./images/mtg.png" alt="Objeto 2">
+					<h3>Objeto 2</h3>
+					<p>Precio: $15.00</p>
+					<button id="comprar-8">Comprar</button>
+				</div>
+				<!-- Noveno producto -->
+				<div class="product">
+					<img src="./images/mtg.png" alt="Objeto 3">
+					<h3>Objeto 3</h3>
+					<p>Precio: $25.00</p>
+					<button id="comprar-9">Comprar</button>
+                </div>
+            </div>
+            <div id="modal-confirmacion" class="modal">
+                <div class="modal-contenido">
+                  <h2>Confirmar compra</h2>
+                  <p>¿Estás seguro de que deseas comprar <span id="producto-nombre"></span> por <span id="producto-precio"></span>?</p>
+                  <div class="botones-modal">
+                    <button id="btn-cancelar">Cancelar</button>
+                    <button id="btn-comprar">Comprar</button>
+                  </div>
+                </div>
+              </div>
+        </section>
+    </main>
+    <!-- <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="./JS/index.js" type="module"></script>
+    <script>
+        $(document).ready(function() {
+            // Agregar evento "click" a cada botón "Comprar"
+            $('button[id^="comprar-"]').click(function() {
+                // Obtener el identificador del botón "Comprar"
+                var id = $(this).attr('id');
+                // Obtener el nombre y el precio del producto
+                var nombre = $(this).siblings('h3').text();
+                var precio = $(this).siblings('p').text();
+                // Mostrar la ventana modal con el nombre, el precio y un mensaje de confirmación
+                $('#producto-nombre').text(nombre);
+                $('#producto-precio').text(precio);
+                $('#modal-confirmacion').show();
+            });
+
+            // Agregar evento "click" al botón "Cancelar" en la ventana modal
+            $('#btn-cancelar').click(function() {
+                $('#modal-confirmacion').hide();
+            });
+
+            // Agregar evento "click" al botón "Comprar" en la ventana modal
+            $('#btn-comprar').click(function() {
+                //alert("¡Gracias por tu compra!");
+                // Aquí iría el código para procesar la compra (enviar un formulario, actualizar el carrito, etc.)
+                $('#modal-confirmacion').hide();
+            });
+        });
+
+
+    </script>
+</body>
+</html>
