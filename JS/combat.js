@@ -18,7 +18,7 @@ var enemy;
 
 function preload() {
     this.load.image('player', '/images/mtg.png');
-    this.load.image('enemy', '/images/mtg.png');
+    this.load.image('enemy', '/images/enemi_minions.png');
 }
 
 function create() {
@@ -70,6 +70,7 @@ function enemyAttack() {
     playerText.setText('Player Health: ' + playerHealth);
 
     //Cambiar el turno al jugador
+
     turn = 'player';
 }
 
